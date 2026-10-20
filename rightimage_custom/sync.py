@@ -23,10 +23,10 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 FILES = [
 	("DocType", "doctype"),
 	("Custom Field", "custom_field"),
+	("Print Format", "print_format"),
 	("Property Setter", "property_setter"),
 	("Client Script", "client_script"),
 	("Server Script", "server_script"),
-	("Print Format", "print_format"),
 	("Custom HTML Block", "custom_html_block"),
 	("Workspace Sidebar", "workspace_sidebar"),
 ]
@@ -135,10 +135,21 @@ def _missing_dependency(desired):
 	return False
 
 
+def _provided_by_app(desired):
+	"""Print Image Slot etc. were added here as site doctypes. Once hiper_solar
+	ships the same doctype as a standard one, leave the app's version alone."""
+	if desired["doctype"] != "DocType":
+		return False
+	custom = frappe.db.get_value("DocType", desired["name"], "custom")
+	return custom is not None and not int(custom) and desired.get("custom")
+
+
 def upsert(desired):
 	doctype, name = desired["doctype"], desired["name"]
 	if _missing_dependency(desired):
 		return "waiting"
+	if _provided_by_app(desired):
+		return "same"
 	if frappe.db.exists(doctype, name):
 		doc = frappe.get_doc(doctype, name)
 		existing = _clean(doc.as_dict())

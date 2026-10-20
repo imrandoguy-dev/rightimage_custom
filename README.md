@@ -7,12 +7,12 @@ Right Image's own setup, kept on top of the standard `hiper_solar` app.
 
 | File (`rightimage_custom/data/`) | What |
 |---|---|
-| `doctype.json` | Order Confirmation, Work Allocation (+ settings and child tables), CRM Lead Document |
+| `doctype.json` | Order Confirmation, Work Allocation (+ settings and child tables), CRM Lead Document, Print Images tables (Quotation Print Image, Print Image Slot, Print Extra Page) |
 | `custom_field.json` | CRM Lead quick/detailed fields, document table, Order Confirmation / Work Allocation links, Solar Package sections, quotation print fields |
 | `property_setter.json` | CRM Lead layout, Solar Package labels, default quotation print format (Right Img, from hiper_solar, with Print Images) |
 | `client_script.json` | Lead Quick Enquiry, Document Cards, Quick vs Detailed, Create Menu, Order Confirmation, Work Allocation, Solar Package sections |
 | `server_script.json` | Order confirm (lead → customer), Order Confirmation payments, Work Allocation costing and accounting |
-| `print_format.json` | Right Image Quotation, Advance Payment Details, Solar Quotation |
+| `print_format.json` | Right Img (with Print Images; artwork in the site files `/files/right_image_*.jpg`), Right Image Quotation, Advance Payment Details, Solar Quotation |
 | `custom_html_block.json` | Solar Dashboard (Leads card on CRM Lead) |
 | `workspace_sidebar.json` | Solar sidebar (Lead → CRM Lead, Order Confirmation, Work Allocation) |
 

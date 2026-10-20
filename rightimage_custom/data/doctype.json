@@ -1,5 +1,137 @@
 [
  {
+  "doctype": "DocType",
+  "name": "Quotation Print Image",
+  "module": "Solar",
+  "custom": 1,
+  "istable": 1,
+  "editable_grid": 1,
+  "fields": [
+   {
+    "fieldname": "print_format",
+    "fieldtype": "Link",
+    "label": "Print Format",
+    "options": "Print Format",
+    "in_list_view": 1,
+    "reqd": 1,
+    "columns": 3,
+    "doctype": "DocField"
+   },
+   {
+    "fieldname": "slot",
+    "fieldtype": "Data",
+    "label": "Slot",
+    "in_list_view": 1,
+    "reqd": 1,
+    "columns": 3,
+    "doctype": "DocField"
+   },
+   {
+    "fieldname": "image",
+    "fieldtype": "Attach Image",
+    "label": "Image",
+    "in_list_view": 1,
+    "columns": 4,
+    "doctype": "DocField"
+   }
+  ]
+ },
+ {
+  "doctype": "DocType",
+  "name": "Print Extra Page",
+  "module": "Solar",
+  "custom": 1,
+  "istable": 1,
+  "editable_grid": 1,
+  "fields": [
+   {
+    "fieldname": "page_no",
+    "fieldtype": "Int",
+    "label": "Page No",
+    "in_list_view": 1,
+    "reqd": 1,
+    "columns": 1,
+    "description": "The page number this image prints at",
+    "doctype": "DocField"
+   },
+   {
+    "fieldname": "label",
+    "fieldtype": "Data",
+    "label": "Label",
+    "in_list_view": 1,
+    "columns": 3,
+    "description": "e.g. Brochure, Panel datasheet",
+    "doctype": "DocField"
+   },
+   {
+    "fieldname": "image",
+    "fieldtype": "Attach Image",
+    "label": "Full-page Image",
+    "in_list_view": 1,
+    "columns": 4,
+    "description": "Prints as a whole A4 page. On a quotation, an empty image skips the default page at this number.",
+    "doctype": "DocField"
+   },
+   {
+    "fieldname": "print_format",
+    "fieldtype": "Link",
+    "label": "Print Format",
+    "options": "Print Format",
+    "in_list_view": 1,
+    "columns": 2,
+    "description": "Only used on quotations",
+    "doctype": "DocField"
+   }
+  ]
+ },
+ {
+  "doctype": "DocType",
+  "name": "Print Image Slot",
+  "module": "Solar",
+  "custom": 1,
+  "istable": 1,
+  "editable_grid": 1,
+  "fields": [
+   {
+    "fieldname": "label",
+    "fieldtype": "Data",
+    "label": "Slot",
+    "in_list_view": 1,
+    "reqd": 1,
+    "columns": 3,
+    "description": "Name shown in the Print Images dialog, e.g. Photo 1 (top left)",
+    "doctype": "DocField"
+   },
+   {
+    "fieldname": "default_image",
+    "fieldtype": "Attach Image",
+    "label": "Default Image",
+    "in_list_view": 1,
+    "columns": 3,
+    "description": "Used on every quotation that has no image of its own for this slot",
+    "doctype": "DocField"
+   },
+   {
+    "fieldname": "quotation_field",
+    "fieldtype": "Data",
+    "label": "Store in Quotation Field",
+    "in_list_view": 1,
+    "columns": 2,
+    "description": "Optional. Fieldname on the quotation to save this image in (for print formats that already read such a field).",
+    "doctype": "DocField"
+   },
+   {
+    "fieldname": "hint",
+    "fieldtype": "Data",
+    "label": "Hint",
+    "in_list_view": 1,
+    "columns": 2,
+    "description": "Optional help text, e.g. size or orientation",
+    "doctype": "DocField"
+   }
+  ]
+ },
+ {
   "rows_threshold_for_grid_search": 20,
   "image_field": null,
   "allow_auto_repeat": 0,

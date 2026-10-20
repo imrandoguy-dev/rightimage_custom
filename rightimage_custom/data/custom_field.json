@@ -2878,5 +2878,79 @@
   "fetch_from": null,
   "fieldtype": "HTML",
   "doctype": "Custom Field"
+ },
+ {
+  "dt": "Quotation",
+  "fieldname": "custom_quote_photos_tab",
+  "fieldtype": "Tab Break",
+  "insert_after": "supplier_quotation",
+  "label": "Print Images",
+  "doctype": "Custom Field",
+  "name": "Quotation-custom_quote_photos_tab"
+ },
+ {
+  "dt": "Quotation",
+  "fieldname": "custom_print_images_panel",
+  "fieldtype": "HTML",
+  "insert_after": "custom_quote_photos_tab",
+  "label": "Print Images Panel",
+  "doctype": "Custom Field",
+  "name": "Quotation-custom_print_images_panel"
+ },
+ {
+  "allow_on_submit": 1,
+  "description": "Use the Print Images button at the top to attach images for the print format you are going to use.",
+  "dt": "Quotation",
+  "fieldname": "custom_print_images",
+  "fieldtype": "Table",
+  "hidden": 1,
+  "insert_after": "custom_print_images_panel",
+  "label": "Print Images",
+  "options": "Quotation Print Image",
+  "doctype": "Custom Field",
+  "name": "Quotation-custom_print_images"
+ },
+ {
+  "allow_on_submit": 1,
+  "dt": "Quotation",
+  "fieldname": "custom_print_extra_pages",
+  "fieldtype": "Table",
+  "hidden": 1,
+  "insert_after": "custom_print_images",
+  "label": "Print Extra Pages",
+  "options": "Print Extra Page",
+  "doctype": "Custom Field",
+  "name": "Quotation-custom_print_extra_pages"
+ },
+ {
+  "description": "Images this print format uses. They appear in the Print Images dialog on the document.",
+  "dt": "Print Format",
+  "fieldname": "custom_image_slots_section",
+  "fieldtype": "Section Break",
+  "insert_after": "css",
+  "label": "Image Slots",
+  "doctype": "Custom Field",
+  "name": "Print Format-custom_image_slots_section"
+ },
+ {
+  "dt": "Print Format",
+  "fieldname": "custom_image_slots",
+  "fieldtype": "Table",
+  "insert_after": "custom_image_slots_section",
+  "label": "Image Slots",
+  "options": "Print Image Slot",
+  "doctype": "Custom Field",
+  "name": "Print Format-custom_image_slots"
+ },
+ {
+  "description": "Default full-page images for this print format, each printed at its page number. Quotations can replace or skip them in the Print Images tab.",
+  "dt": "Print Format",
+  "fieldname": "custom_extra_pages",
+  "fieldtype": "Table",
+  "insert_after": "custom_image_slots",
+  "label": "Extra Pages",
+  "options": "Print Extra Page",
+  "doctype": "Custom Field",
+  "name": "Print Format-custom_extra_pages"
  }
 ]
