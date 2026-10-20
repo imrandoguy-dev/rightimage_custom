@@ -127,8 +127,18 @@ def _custom_field_order(docs):
 	return ordered
 
 
+def _missing_dependency(desired):
+	"""A default print format that this site doesn't have yet (e.g. hiper_solar
+	not updated) would break printing, so wait until it exists."""
+	if desired["doctype"] == "Property Setter" and desired.get("property") == "default_print_format":
+		return not frappe.db.exists("Print Format", desired.get("value"))
+	return False
+
+
 def upsert(desired):
 	doctype, name = desired["doctype"], desired["name"]
+	if _missing_dependency(desired):
+		return "waiting"
 	if frappe.db.exists(doctype, name):
 		doc = frappe.get_doc(doctype, name)
 		existing = _clean(doc.as_dict())
@@ -147,7 +157,7 @@ def upsert(desired):
 
 
 def apply_all():
-	counts = {"created": 0, "updated": 0, "same": 0, "failed": 0}
+	counts = {"created": 0, "updated": 0, "same": 0, "waiting": 0, "failed": 0}
 	failures = []
 	for doctype, filename in FILES:
 		docs = _read(filename)
